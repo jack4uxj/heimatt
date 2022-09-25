@@ -1,0 +1,80 @@
+//  文章请求模块
+import request from '@/utils/request'
+
+
+// 请求文章列表数据
+export const getArticles = params => {
+    return request({
+      method: 'GET',
+      url: '/v1_0/articles',
+      params
+    })
+  }
+
+
+
+// 获取文章详细
+export const getArticleId = articleId => {
+  return request({
+    method: 'GET',
+    url: `/v1_0/articles/${articleId}`
+  })
+}
+
+// 收藏文章
+export const addCollet = target	 => {
+  return request({
+    method: 'POST',
+    url: `/v1_0/article/collections`,
+    data: {
+      target
+    }
+  })
+}
+
+// 取消收藏文章
+export const canceladdCollet= target	 => {
+  return request({
+    method: 'DELETE',
+    url: `/v1_0/article/collections/${target}`
+  })
+}
+
+// 点赞文章
+export const likeArticle= target	 => {
+  return request({
+    method: 'POST',
+    url: `/v1_0/article/likings`,
+    data:{
+      target
+    }
+  })
+}
+
+// 取消点赞文章
+export const cancelLikeArticle= target	 => {
+  return request({
+    method: 'DELETE',
+    url: `/v1_0/article/likings/${target}`
+  })
+}
+
+
+// 不喜欢文章
+export const unlikeArticle= target	 => {
+  return request({
+    method: 'POST',
+    url: `/v1_0/article/likings`,
+    data:{
+      target
+    }
+  })
+}
+
+// 取消点赞文章
+export const cancelUnlikeArticle= target	 => {
+  return request({
+    method: 'DELETE',
+    url: `/v1_0/article/likings/${target}`
+  })
+}
